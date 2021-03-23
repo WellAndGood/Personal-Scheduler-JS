@@ -17,6 +17,11 @@ textarea {
   background-color: inherit;
 }
 
+p {
+  line-height: 1.5;
+  font-size: 110%;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -84,4 +89,14 @@ textarea {
   position: relative;
   right: 20px;
   top: 20px;
+  text-decoration: none;
+}
+
+.lock:hover {
+  cursor: default;
+}
+
+.bottom-button {
+  display: flex;
+  justify-content: center;
 }

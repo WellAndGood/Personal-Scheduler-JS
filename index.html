@@ -28,6 +28,10 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <p><strong>Instructions:</strong> Fill your time-slots with important tasks.<br>
+      Hit the 'lock' symbol on the right to save your tasks, even after refreshing. <br>
+      You can always update what you've saved. <br>
+      Erase everything by pressing the 'Clear Calendar' button at the bottom of the application.</p>
     </header>
     <div class="container">
 
@@ -40,7 +44,7 @@
           <textarea class="textEntry " id="9AMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="9AM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 9AM slot">🔓</span>
         </div>
       </div>
 
@@ -53,7 +57,7 @@
           <textarea class="textEntry" id="10AMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="10AM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 10AM slot">🔓</span>
         </div>
       </div>
 
@@ -66,7 +70,7 @@
           <textarea class="textEntry" id="11AMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="11AM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 11AM slot">🔓</span>
         </div>
       </div>
 
@@ -79,7 +83,7 @@
           <textarea class="textEntry" id="12PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="12PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 12PM slot">🔓</span>
         </div>
       </div>
 
@@ -92,7 +96,7 @@
           <textarea class="textEntry" id="1PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="1PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 1PM slot">🔓</span>
         </div>
       </div>
 
@@ -105,7 +109,7 @@
           <textarea class="textEntry" id="2PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="2PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 2PM slot">🔓</span>
         </div>
       </div>
 
@@ -118,7 +122,7 @@
           <textarea class="textEntry" id="3PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="3PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 3PM slot">🔓</span>
         </div>
       </div>
 
@@ -131,7 +135,7 @@
           <textarea class="textEntry" id="4PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="4PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 4PM slot">🔓</span>
         </div>
       </div>
 
@@ -144,8 +148,11 @@
           <textarea class="textEntry" id="5PMTextArea"></textarea>
         </div>
         <div class="col saveBtn border" data-timestamp="5PM">
-          <span class="lock">🔓</span>
+          <span class="lock" alt="save your 5PM slot">🔓</span>
         </div>
+      </div>
+      <div class="bottom-button">
+        <button type="button" class="btn btn-warning border justify-content-center p-3 m-3">Clear Calendar</button>
       </div>
     </div>
 
