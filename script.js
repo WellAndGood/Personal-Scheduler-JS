@@ -6,6 +6,7 @@ currentDay = $('#currentDay')
 today = moment()
 currentDay.text( today.format("[Today is] dddd, MMMM Do YYYY"))
 
+// Variable declaration
 var timeBlocks = $('.time-block')
 var saveButtons = document.querySelectorAll(".saveBtn")
 var textAreas = $('.textEntry')
@@ -13,40 +14,30 @@ var lockIcon = $('.lock')
 var clearCalButton = $('.btn-warning')
 var containerDiv = $('container')
 
+// When the document loads
 $( document ).ready(function() {
     $('.time-block').each(function(index, value) {
         
         var obj = $(value)
         var timeBlock = parseInt(obj.attr("id"))
-        // console.log("thisBlock:",  timeBlock)
-        
         var timeBlockMoment = moment(timeBlock, "HH").format("H")
         var timeBlockTextArea = $('.time-block .timeTextarea').eq(index)
         var currentHour = moment().hour();
-        // var currentHour = parseInt(moment("12:30 PM", "LT").format("H"))
-        // console.log(currentHour)
 
         // Time-dependent formatting of textarea parent div
-        // Present Hour 
+        
+        // Present Hour; assigns "present" class
         if (currentHour < timeBlockMoment) {
-            // console.log("this time: " , currentHour)
-            // console.log("time block: ", timeBlockMoment)
             timeBlockTextArea.removeClass("past present")  
             timeBlockTextArea.addClass("future") 
-            // console.log(timeBlockMoment + " is in the future of " + currentHour) 
 
-        // Past hours
+        // Past Hours; assigns "past" class
         } else if (currentHour > timeBlockMoment) {
-            // console.log("this time: " , currentHour)
-            // console.log("time block: ", timeBlockMoment)
             timeBlockTextArea.removeClass("future present")
             timeBlockTextArea.addClass("past")
-            // console.log(timeBlockMoment + " is in the past of " + currentHour)
 
-        // Future hours
+        // Future Hours; assigns "future" class
         } else {
-            // console.log("this time: " , currentHour)
-            // console.log("time block: ", timeBlockMoment)
             timeBlockTextArea.removeClass("future past")
             timeBlockTextArea.addClass("present") 
             return
@@ -54,20 +45,17 @@ $( document ).ready(function() {
     });
 })
 
+// By clicking one of the save buttons, you save the contents of the textarea to localStorage, to be retrieved at a later time.
+
 saveButtons.forEach((choice) => {
     choice.addEventListener("click", function(event) {
         
-        // acts as a pseudo event delegation
+        // These variables act as a pseudo event delegation, allowing you to click on both the container div and the emoji and get the same result
         var whichButton = event.target.parentElement.dataset.timevalue || event.target.parentElement.parentElement.dataset.timevalue;
-        
-        console.log(whichButton)
-        
-        // acts as a pseudo event delegation
         var findTextArea = $(event.target).parent("div").children(".timeTextarea").children(".textEntry").val() || $(event.target).parent("div").parent("div").children(".timeTextarea").children(".textEntry").val() || ""
-        
-        console.log(findTextArea)
-        
         var storedItem = localStorage.setItem(whichButton, findTextArea);
+
+        // Changes the state of the lockpad emoji from unlocked to locked. 
         var lockCheck = event.target.querySelector('.lock') || event.target
         if (lockCheck.innerText === "🔓") {
             lockCheck.innerText = "🔐"
@@ -77,7 +65,6 @@ saveButtons.forEach((choice) => {
         };
     });
 });
-
 
 // Gets the local Storage each time the page loads 
 $('.schedule #9AMTextArea').val(localStorage.getItem("9"))
@@ -90,14 +77,14 @@ $('.schedule #3PMTextArea').val(localStorage.getItem("15"))
 $('.schedule #4PMTextArea').val(localStorage.getItem("16"))
 $('.schedule #5PMTextArea').val(localStorage.getItem("17"))
 
-// Undoes the 'lock' feature by typing
+// Undoes the 'lock' feature by typing in the textarea
 textAreas.on("keyup", function(event) {
     // console.log(event.key);
     updateSaveState = $(this).parent().parent().children(2).last().contents();
     updateSaveState.text("🔓")
 });
 
-// Clears the text areas
+// Clears localStorage and the textareas by clicking the 'Clear Calendar' button 
 clearCalButton.on("click", containerDiv, function(index) {
     var clearConfirm = confirm("Are you sure you want to delete your calendar memory?")
     if (clearConfirm) {
