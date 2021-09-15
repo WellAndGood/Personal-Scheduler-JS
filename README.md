@@ -1,4 +1,4 @@
-# Personal Day Scheduler - Bootcamp Spot Homework #5
+# Personal Day Scheduler
 
 ## Overview
 
